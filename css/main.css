@@ -1,0 +1,48 @@
+.drink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+
+.drink-name {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.drink-discription {
+  font-size: 20px;
+  width: 500px;
+}
+
+.drink-text {
+  margin-right: 30px;
+}
+
+.drink-img {
+  width: 500px;
+  height: 500px;
+  margin-right: 30px;
+  border-radius: 50px;
+}
+
+.drink-button {
+  font-size: 23px;
+  width: 200px;
+  height: 150px;
+  border-radius: 50px;
+  border: none;
+}
+
+.drink-button:focus {
+  outline: none;
+}
+
+.drink-button:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */
