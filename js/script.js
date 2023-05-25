@@ -1,25 +1,26 @@
 const getData = async (url) => {
-    let response = await fetch(url)
-    let data = response.json()
+    const response = await fetch(url)
+    const data = response.json()
     return data
 }
 
 const getImg = async (url) => {
-    let response = await fetch(url)
-    let blob = await response.blob()
+    const response = await fetch(url)
+    const blob = await response.blob()
     return blob
 }
 
-document.querySelector('#drink-button').addEventListener('click', () => {
-    getData('https://www.thecocktaildb.com/api/json/v1/1/random.php').then(drink => {
-        getImg(drink.drinks[0].strDrinkThumb + '/preview').then(img => {
-            document.querySelector('#drink-img').src = URL.createObjectURL(img)
-            document.querySelector('#drink-name').innerText = drink.drinks[0].strDrink
-            document.querySelector('#drink-discription').innerText = drink.drinks[0].strInstructions
-        })
-    })
-})
+document.querySelector('#drink-button').addEventListener('click', async () => {
+    const drink = await getData('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+    const { strDrinkThumb, strDrink, strInstructions } = drink.drinks[0];
+    const imgUrl = strDrinkThumb + '/preview';
 
+    const img = await getImg(imgUrl);
+
+    document.querySelector('#drink-img').src = URL.createObjectURL(img);
+    document.querySelector('#drink-name').innerText = strDrink;
+    document.querySelector('#drink-discription').innerText = strInstructions;
+});
 
 
 
